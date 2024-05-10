@@ -1,10 +1,10 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 
-const WeatherInfo = () => {
+const WeatherInfo = ({ weatherData }) => {
    return (
       <View styles={styles.marginTop20}>
-         <Text style={[styles.text, styles.marginTop20]}>The weather of Jakarta</Text>
-         <Text style={[styles.temperature, styles.marginTop20]}>15 c</Text>
+         <Text style={[styles.text, styles.marginTop20]}>The weather of {weatherData.name}</Text>
+         <Text style={[styles.temperature, styles.marginTop20]}>{weatherData.main.temp} C</Text>
          <View style={[styles.rowContainer, styles.marginTop20]}>
             <Image 
                source={{ 
@@ -17,11 +17,11 @@ const WeatherInfo = () => {
          <Text style={styles.text}>overcast clouds</Text>
          <View style={[styles.rowContainer, styles.marginTop20]}>
             <Text style={[styles.text, styles.bold]}>Visibility:</Text>
-            <Text style={[styles.text, styles.marginLeft15]}>10 km</Text>
+            <Text style={[styles.text, styles.marginLeft15]}>{weatherData.visibility} km</Text>
          </View>
          <View style={[styles.rowContainer, styles.marginTop20]}>
             <Text style={[styles.text, styles.bold]}>Wind Speed:</Text>
-            <Text style={[styles.text, styles.marginLeft15]}>10 m/s</Text>
+            <Text style={[styles.text, styles.marginLeft15]}>{weatherData.wind.speed} m/s</Text>
          </View>
       </View>
    );
